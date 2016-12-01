@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5058dc6f679a4b919a4c362e27eff0c4" Name="Diagram1">
+        <EntityTypeShape EntityType="TradeServicesModel.AcceptedTrade" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeServicesModel.Category" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeServicesModel.Job" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeServicesModel.Trader" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeServicesModel.TradeSkill" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="TradeServicesModel.FK_AcceptedTrades_Jobs" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeServicesModel.FK_AcceptedTrades_Traders" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeServicesModel.FK_AcceptedTrades_Traders1" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeServicesModel.FK_Jobs_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeServicesModel.FK_TradeSkills_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeServicesModel.FK_Jobs_Traders" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeServicesModel.FK_TradeSkills_Traders" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

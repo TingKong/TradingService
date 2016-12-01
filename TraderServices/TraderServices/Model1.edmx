@@ -1,0 +1,448 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TradeServicesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AcceptedTrades">
+          <Key>
+            <PropertyRef Name="TraderID" />
+            <PropertyRef Name="Trader2ID" />
+            <PropertyRef Name="JobID" />
+            <PropertyRef Name="Job2ID" />
+          </Key>
+          <Property Name="TraderID" Type="int" Nullable="false" />
+          <Property Name="Trader2ID" Type="int" Nullable="false" />
+          <Property Name="JobID" Type="int" Nullable="false" />
+          <Property Name="Job2ID" Type="int" Nullable="false" />
+          <Property Name="AcceptedT1" Type="bit" />
+          <Property Name="AcceptedT2" Type="bit" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Desc" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Jobs">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Names" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Details" Type="varchar" MaxLength="100" />
+          <Property Name="DueDate" Type="date" Nullable="false" />
+          <Property Name="TraderID" Type="int" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Traders">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AuthKey" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TradeSkills">
+          <Key>
+            <PropertyRef Name="TraderID" />
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="TraderID" Type="int" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="YearsOfExp" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ShortDes" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK_AcceptedTrades_Jobs">
+          <End Role="Jobs" Type="Self.Jobs" Multiplicity="1" />
+          <End Role="AcceptedTrades" Type="Self.AcceptedTrades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jobs">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AcceptedTrades">
+              <PropertyRef Name="JobID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AcceptedTrades_Traders">
+          <End Role="Traders" Type="Self.Traders" Multiplicity="1" />
+          <End Role="AcceptedTrades" Type="Self.AcceptedTrades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Traders">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AcceptedTrades">
+              <PropertyRef Name="TraderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AcceptedTrades_Traders1">
+          <End Role="Traders" Type="Self.Traders" Multiplicity="1" />
+          <End Role="AcceptedTrades" Type="Self.AcceptedTrades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Traders">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AcceptedTrades">
+              <PropertyRef Name="Trader2ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Jobs_Categories">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+          <End Role="Jobs" Type="Self.Jobs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Jobs">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Jobs_Traders">
+          <End Role="Traders" Type="Self.Traders" Multiplicity="1" />
+          <End Role="Jobs" Type="Self.Jobs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Traders">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Jobs">
+              <PropertyRef Name="TraderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TradeSkills_Categories">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+          <End Role="TradeSkills" Type="Self.TradeSkills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TradeSkills">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TradeSkills_Traders">
+          <End Role="Traders" Type="Self.Traders" Multiplicity="1" />
+          <End Role="TradeSkills" Type="Self.TradeSkills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Traders">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TradeSkills">
+              <PropertyRef Name="TraderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TradeServicesModelStoreContainer">
+          <EntitySet Name="AcceptedTrades" EntityType="Self.AcceptedTrades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Jobs" EntityType="Self.Jobs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Traders" EntityType="Self.Traders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TradeSkills" EntityType="Self.TradeSkills" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AcceptedTrades_Jobs" Association="Self.FK_AcceptedTrades_Jobs">
+            <End Role="Jobs" EntitySet="Jobs" />
+            <End Role="AcceptedTrades" EntitySet="AcceptedTrades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AcceptedTrades_Traders" Association="Self.FK_AcceptedTrades_Traders">
+            <End Role="Traders" EntitySet="Traders" />
+            <End Role="AcceptedTrades" EntitySet="AcceptedTrades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AcceptedTrades_Traders1" Association="Self.FK_AcceptedTrades_Traders1">
+            <End Role="Traders" EntitySet="Traders" />
+            <End Role="AcceptedTrades" EntitySet="AcceptedTrades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Jobs_Categories" Association="Self.FK_Jobs_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Jobs" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Jobs_Traders" Association="Self.FK_Jobs_Traders">
+            <End Role="Traders" EntitySet="Traders" />
+            <End Role="Jobs" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TradeSkills_Categories" Association="Self.FK_TradeSkills_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="TradeSkills" EntitySet="TradeSkills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TradeSkills_Traders" Association="Self.FK_TradeSkills_Traders">
+            <End Role="Traders" EntitySet="Traders" />
+            <End Role="TradeSkills" EntitySet="TradeSkills" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TradeServicesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AcceptedTrade">
+          <Key>
+            <PropertyRef Name="TraderID" />
+            <PropertyRef Name="Trader2ID" />
+            <PropertyRef Name="JobID" />
+            <PropertyRef Name="Job2ID" />
+          </Key>
+          <Property Name="TraderID" Type="Int32" Nullable="false" />
+          <Property Name="Trader2ID" Type="Int32" Nullable="false" />
+          <Property Name="JobID" Type="Int32" Nullable="false" />
+          <Property Name="Job2ID" Type="Int32" Nullable="false" />
+          <Property Name="AcceptedT1" Type="Boolean" />
+          <Property Name="AcceptedT2" Type="Boolean" />
+          <NavigationProperty Name="Job" Relationship="Self.FK_AcceptedTrades_Jobs" FromRole="AcceptedTrades" ToRole="Jobs" />
+          <NavigationProperty Name="Trader" Relationship="Self.FK_AcceptedTrades_Traders" FromRole="AcceptedTrades" ToRole="Traders" />
+          <NavigationProperty Name="Trader1" Relationship="Self.FK_AcceptedTrades_Traders1" FromRole="AcceptedTrades" ToRole="Traders" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Desc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Jobs" Relationship="Self.FK_Jobs_Categories" FromRole="Categories" ToRole="Jobs" />
+          <NavigationProperty Name="TradeSkills" Relationship="Self.FK_TradeSkills_Categories" FromRole="Categories" ToRole="TradeSkills" />
+        </EntityType>
+        <EntityType Name="Job">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Names" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Details" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DueDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TraderID" Type="Int32" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AcceptedTrades" Relationship="Self.FK_AcceptedTrades_Jobs" FromRole="Jobs" ToRole="AcceptedTrades" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Jobs_Categories" FromRole="Jobs" ToRole="Categories" />
+          <NavigationProperty Name="Trader" Relationship="Self.FK_Jobs_Traders" FromRole="Jobs" ToRole="Traders" />
+        </EntityType>
+        <EntityType Name="Trader">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AuthKey" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AcceptedTrades" Relationship="Self.FK_AcceptedTrades_Traders" FromRole="Traders" ToRole="AcceptedTrades" />
+          <NavigationProperty Name="AcceptedTrades1" Relationship="Self.FK_AcceptedTrades_Traders1" FromRole="Traders" ToRole="AcceptedTrades" />
+          <NavigationProperty Name="Jobs" Relationship="Self.FK_Jobs_Traders" FromRole="Traders" ToRole="Jobs" />
+          <NavigationProperty Name="TradeSkills" Relationship="Self.FK_TradeSkills_Traders" FromRole="Traders" ToRole="TradeSkills" />
+        </EntityType>
+        <EntityType Name="TradeSkill">
+          <Key>
+            <PropertyRef Name="TraderID" />
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="TraderID" Type="Int32" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="YearsOfExp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ShortDes" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_TradeSkills_Categories" FromRole="TradeSkills" ToRole="Categories" />
+          <NavigationProperty Name="Trader" Relationship="Self.FK_TradeSkills_Traders" FromRole="TradeSkills" ToRole="Traders" />
+        </EntityType>
+        <Association Name="FK_AcceptedTrades_Jobs">
+          <End Role="Jobs" Type="Self.Job" Multiplicity="1" />
+          <End Role="AcceptedTrades" Type="Self.AcceptedTrade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jobs">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AcceptedTrades">
+              <PropertyRef Name="JobID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AcceptedTrades_Traders">
+          <End Role="Traders" Type="Self.Trader" Multiplicity="1" />
+          <End Role="AcceptedTrades" Type="Self.AcceptedTrade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Traders">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AcceptedTrades">
+              <PropertyRef Name="TraderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AcceptedTrades_Traders1">
+          <End Role="Traders" Type="Self.Trader" Multiplicity="1" />
+          <End Role="AcceptedTrades" Type="Self.AcceptedTrade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Traders">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AcceptedTrades">
+              <PropertyRef Name="Trader2ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Jobs_Categories">
+          <End Role="Categories" Type="Self.Category" Multiplicity="1" />
+          <End Role="Jobs" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Jobs">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TradeSkills_Categories">
+          <End Role="Categories" Type="Self.Category" Multiplicity="1" />
+          <End Role="TradeSkills" Type="Self.TradeSkill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TradeSkills">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Jobs_Traders">
+          <End Role="Traders" Type="Self.Trader" Multiplicity="1" />
+          <End Role="Jobs" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Traders">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Jobs">
+              <PropertyRef Name="TraderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TradeSkills_Traders">
+          <End Role="Traders" Type="Self.Trader" Multiplicity="1" />
+          <End Role="TradeSkills" Type="Self.TradeSkill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Traders">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TradeSkills">
+              <PropertyRef Name="TraderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TradeServicesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AcceptedTrades" EntityType="Self.AcceptedTrade" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Jobs" EntityType="Self.Job" />
+          <EntitySet Name="Traders" EntityType="Self.Trader" />
+          <EntitySet Name="TradeSkills" EntityType="Self.TradeSkill" />
+          <AssociationSet Name="FK_AcceptedTrades_Jobs" Association="Self.FK_AcceptedTrades_Jobs">
+            <End Role="Jobs" EntitySet="Jobs" />
+            <End Role="AcceptedTrades" EntitySet="AcceptedTrades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AcceptedTrades_Traders" Association="Self.FK_AcceptedTrades_Traders">
+            <End Role="Traders" EntitySet="Traders" />
+            <End Role="AcceptedTrades" EntitySet="AcceptedTrades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AcceptedTrades_Traders1" Association="Self.FK_AcceptedTrades_Traders1">
+            <End Role="Traders" EntitySet="Traders" />
+            <End Role="AcceptedTrades" EntitySet="AcceptedTrades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Jobs_Categories" Association="Self.FK_Jobs_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Jobs" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TradeSkills_Categories" Association="Self.FK_TradeSkills_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="TradeSkills" EntitySet="TradeSkills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Jobs_Traders" Association="Self.FK_Jobs_Traders">
+            <End Role="Traders" EntitySet="Traders" />
+            <End Role="Jobs" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TradeSkills_Traders" Association="Self.FK_TradeSkills_Traders">
+            <End Role="Traders" EntitySet="Traders" />
+            <End Role="TradeSkills" EntitySet="TradeSkills" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TradeServicesModelStoreContainer" CdmEntityContainer="TradeServicesEntities">
+          <EntitySetMapping Name="AcceptedTrades">
+            <EntityTypeMapping TypeName="TradeServicesModel.AcceptedTrade">
+              <MappingFragment StoreEntitySet="AcceptedTrades">
+                <ScalarProperty Name="TraderID" ColumnName="TraderID" />
+                <ScalarProperty Name="Trader2ID" ColumnName="Trader2ID" />
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="Job2ID" ColumnName="Job2ID" />
+                <ScalarProperty Name="AcceptedT1" ColumnName="AcceptedT1" />
+                <ScalarProperty Name="AcceptedT2" ColumnName="AcceptedT2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="TradeServicesModel.Category">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Desc" ColumnName="Desc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Jobs">
+            <EntityTypeMapping TypeName="TradeServicesModel.Job">
+              <MappingFragment StoreEntitySet="Jobs">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Names" ColumnName="Names" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="TraderID" ColumnName="TraderID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Traders">
+            <EntityTypeMapping TypeName="TradeServicesModel.Trader">
+              <MappingFragment StoreEntitySet="Traders">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="AuthKey" ColumnName="AuthKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TradeSkills">
+            <EntityTypeMapping TypeName="TradeServicesModel.TradeSkill">
+              <MappingFragment StoreEntitySet="TradeSkills">
+                <ScalarProperty Name="TraderID" ColumnName="TraderID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="YearsOfExp" ColumnName="YearsOfExp" />
+                <ScalarProperty Name="ShortDes" ColumnName="ShortDes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
