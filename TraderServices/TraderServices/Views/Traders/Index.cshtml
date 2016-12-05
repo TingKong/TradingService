@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TraderServices.Trader>
+﻿@model IEnumerable<TraderServices.Models.Traderskills>
 
 @{
     ViewBag.Title = "Index";
@@ -13,31 +13,40 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.TraderP.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AuthKey)
+            @Html.DisplayNameFor(model => model.TraderP.AuthKey)
         </th>
         <th>
-            @Html.DisplayNameFor(model => TraderSkill.traderjob.CategoryID)
+            @Html.DisplayNameFor(model => model.TraderC.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TraderS.YearsOfExp)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @Html.DisplayFor(model => model.TraderP.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.AuthKey)
+            @Html.DisplayFor(model => model.TraderP.AuthKey)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.DisplayFor(model => model.TraderC.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.TraderS.YearsOfExp)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id= TItem.ID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ID })**@
         </td>
     </tr>
-}
+
 
 </table>

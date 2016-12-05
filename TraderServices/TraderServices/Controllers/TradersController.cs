@@ -19,8 +19,14 @@ namespace TraderServices.Controllers
         {
             var traderjob = from ts in db.TradeSkills
                             join person in db.Traders on ts.TraderID equals person.ID
-                            where ts.TraderID == person.ID
-                            select ts;
+                            join cat in db.Categories on ts.CategoryID equals cat.ID
+                            where ts.TraderID == person.ID && ts.CategoryID == cat.ID
+                            select new TraderServices.Models.Traderskills()
+                            {
+                                TraderS = ts,
+                                TraderP = person,
+                                TraderC = cat
+                            };
 
 
             return View(traderjob);
