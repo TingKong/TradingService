@@ -17,16 +17,11 @@ namespace TraderServices.Controllers
         // GET: Traders
         public ActionResult Index()
         {
-            var traderjob = from ts in db.TradeSkills
-                            join person in db.Traders on ts.TraderID equals person.ID
-                            join cat in db.Categories on ts.CategoryID equals cat.ID
-                            where ts.TraderID == person.ID && ts.CategoryID == cat.ID
-                            select new TraderServices.Models.Traderskills()
-                            {
-                                TraderS = ts,
-                                TraderP = person,
-                                TraderC = cat
-                            };
+            var traderjob = (from ts in db.TradeSkills
+                             join person in db.Traders on ts.TraderID equals person.ID
+                             join cat in db.Categories on ts.CategoryID equals cat.ID
+                             where ts.TraderID == person.ID && ts.CategoryID == cat.ID
+                             select person).FirstOrDefault();
 
 
             return View(traderjob);
@@ -96,7 +91,7 @@ namespace TraderServices.Controllers
             {
                 db.Entry(trader).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("index");
             }
             return View(trader);
         }

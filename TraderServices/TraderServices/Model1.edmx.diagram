@@ -5,10 +5,10 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="5058dc6f679a4b919a4c362e27eff0c4" Name="Diagram1">
-        <EntityTypeShape EntityType="TradeServicesModel.AcceptedTrade" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeServicesModel.AcceptedTrade" Width="1.5" PointX="7.75" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="TradeServicesModel.Category" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TradeServicesModel.Job" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TradeServicesModel.Trader" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeServicesModel.Job" Width="1.5" PointX="5.375" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeServicesModel.Trader" Width="1.5" PointX="1.25" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="TradeServicesModel.TradeSkill" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="TradeServicesModel.FK_AcceptedTrades_Jobs" ManuallyRouted="false" />
         <AssociationConnector Association="TradeServicesModel.FK_AcceptedTrades_Traders" ManuallyRouted="false" />

@@ -55,7 +55,7 @@ namespace TraderServices.Controllers
             {
                 db.TradeSkills.Add(tradeSkill);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("../Traders/Index");
             }
 
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "Name", tradeSkill.CategoryID);
@@ -99,13 +99,13 @@ namespace TraderServices.Controllers
         }
 
         // GET: TradeSkills/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int? id, int id2)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TradeSkill tradeSkill = db.TradeSkills.Find(id);
+            TradeSkill tradeSkill = db.TradeSkills.Find(id, id2);
             if (tradeSkill == null)
             {
                 return HttpNotFound();
