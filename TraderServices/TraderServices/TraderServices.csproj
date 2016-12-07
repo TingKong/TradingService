@@ -339,6 +339,7 @@
     <Content Include="Views\TradeSkills\Details.cshtml" />
     <Content Include="Views\TradeSkills\Edit.cshtml" />
     <Content Include="Views\TradeSkills\Index.cshtml" />
+    <Content Include="Views\Traders\Admin2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

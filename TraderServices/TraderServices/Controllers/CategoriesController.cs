@@ -10,6 +10,8 @@ using TraderServices;
 
 namespace TraderServices.Controllers
 {
+    [Authorize]
+
     public class CategoriesController : Controller
     {
         private TradeServicesEntities db = new TradeServicesEntities();

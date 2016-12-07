@@ -10,6 +10,8 @@ using TraderServices;
 
 namespace TraderServices.Controllers
 {
+    [Authorize]
+
     public class TradersController : Controller
     {
         private TradeServicesEntities db = new TradeServicesEntities();
@@ -20,9 +22,8 @@ namespace TraderServices.Controllers
             var traderjob = (from ts in db.TradeSkills
                              join person in db.Traders on ts.TraderID equals person.ID
                              join cat in db.Categories on ts.CategoryID equals cat.ID
-                             where ts.TraderID == person.ID && ts.CategoryID == cat.ID
+                             where ts.TraderID == person.ID && ts.CategoryID == cat.ID && person.AuthKey == User.Identity.Name
                              select person).FirstOrDefault();
-
 
             return View(traderjob);
         }
@@ -129,6 +130,12 @@ namespace TraderServices.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult Admin2()
+        {
+            return View(db.Traders.ToList());
+
         }
     }
 }

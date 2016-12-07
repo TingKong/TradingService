@@ -64,4 +64,28 @@ namespace TraderServices
 
 
     }
+
+    [MetadataType(typeof(JobMetaData))]
+    public partial class Job
+    {
+
+    }
+
+    public class JobMetaData
+    {
+        [DisplayName("Job Title")]
+        public string Names { get; set; }
+
+        [DisplayName("Description")]
+        public string Details { get; set; }
+
+        [DisplayName("Due Date")]
+        public DateTime DueDate { get; set; }
+
+
+        //[DisplayName("Category")]
+        //public string CategoryID { get; set; }
+
+
+    }
 }
