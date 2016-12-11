@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TraderServices;
+using TraderServices.Models;
 
 namespace TraderServices.Controllers
 {
@@ -41,16 +42,27 @@ namespace TraderServices.Controllers
         // GET: Jobs/Create
         public ActionResult Create()
         {
-            Job traderjob = new Job();
-            ViewBag.CategoryID = new SelectList(db.Categories, "ID", "Name");
-            ViewBag.TraderID = new SelectList(db.Traders, "ID", "Name");
 
-            var traderPerson = (from tp in db.Jobs
-                             join person in db.Traders on tp.TraderID equals person.ID
-                             where tp.TraderID == person.ID && person.AuthKey == User.Identity.Name
-                             select person).FirstOrDefault();
+            //ViewBag.CategoryID = new SelectList(db.Categories, "ID", "Name");
+            //ViewBag.TraderID = new SelectList(db.Traders, "ID", "Name");
+            //string userName = User.Identity.Name;
+            //Job myTrader = Jobs.GetTraderByUserName(userName);
 
-            return View(traderPerson);
+            //Job traderjob = new Job();
+            Trader traderPerson = (from tp in db.Jobs
+                                   join person in db.Traders on tp.TraderID equals person.ID
+                                   where person.AuthKey == User.Identity.Name
+                                   select person).FirstOrDefault();
+
+            var catList = from c in db.Categories
+                           select c;
+
+            Jobs tc = new Jobs();
+            tc.traderPerson = traderPerson;
+            tc.catList = catList.ToList();
+            return View(tc);
+
+            //return View();
         }
         [Authorize]
 

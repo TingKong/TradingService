@@ -1,4 +1,5 @@
-﻿@model TraderServices.Job
+﻿
+@model TraderServices.Models.Jobs
 
 @{
     ViewBag.Title = "Create";
@@ -18,20 +19,21 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TraderID, "Trader", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.traderPerson.Name, "Trader", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("TraderID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.TraderID, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.traderPerson.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @*@Html.DropDownList("TraderID", null, htmlAttributes: new { @class = "form-control" })*@
+                @Html.ValidationMessageFor(model => model.traderPerson.Name, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.CategoryID, "Job Category", htmlAttributes: new { @class = "control-label col-md-2" })
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.CategoryID.ToString, "Job Category", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("CategoryID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
+                @Html.DropDownList("Job Category", null, htmlAttributes: new { @class = "form -control" })
+                @Html.ValidationMessageFor(model => model.CategoryID.ToString, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Names, htmlAttributes: new { @class = "control-label col-md-2" })
