@@ -1,8 +1,32 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+    Layout = null;
+
 }
+<link href="../../Content/Site.css" <link rel="stylesheet" type="text/css"/>
+<link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,600" rel="stylesheet">
 
-<a href="Jobs/Create">Post A Job</a>
+<div class="home_wrap">
+    <header>
+        <div class="homeU_left">
+            <img src="../../images/logo.png" />
+        </div>
+        <div class="homeU_right">
+            <a href="../Account/Login?">log in</a>
+        </div>
+    </header>
+    <div class="home_middle">
+        <a href="Jobs/Create">Post A Job</a>
+        <a href="Jobs/index">Open Jobs</a>
+        <div class="clear"></div>
 
-<a href="Jobs/index">Open Jobs</a>
+        <a class="join" href="">Sign Up</a>
+    </div>
+</div>
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(document.body).addClass('home');
+
+    });
+</script>

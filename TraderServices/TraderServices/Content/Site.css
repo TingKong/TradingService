@@ -1,6 +1,14 @@
-﻿body {
+﻿html, body{
+    width:100%;
+    height:100%;
+        margin: 0px;
+font-family: 'Crimson Text', serif;
+
+}
+body.Olayout {
     padding-top: 50px;
     padding-bottom: 20px;
+    
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -24,9 +32,83 @@ textarea
    width: 300px!important;
 }
 
+ a{
+    text-decoration:none;
+}
+
 textarea{
     height: 130px!important;
     padding:10px;
 }
 
+.home_wrap{
+    background:url('../images/w_bg2_1.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding:0px 30px;
+}
 
+.home_wrap .home_middle{
+     width: 472px;
+    margin:0px auto;
+    padding:260px 0px 340px 0px;
+    
+}
+
+.home_wrap .home_middle a{
+    color:wheat;
+    background:#002639;
+    padding:20px 50px;
+    -webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+margin-left:10px;
+margin-right:10px;
+border:1px solid #002639;
+    font-size: 30px;
+text-transform:lowercase;
+}
+
+
+.home_wrap header{
+        padding-top: 25px;
+
+}
+.home_wrap header .homeU_left{
+    float:left;
+    width:auto;
+}
+
+.home_wrap header .homeU_left img{
+        width:100px;
+
+}
+
+.home_wrap header .homeU_right{
+    float:right;
+        width:auto;
+        margin-top:5px;
+}
+
+.home_wrap header .homeU_right a{
+        font-size: 19px;
+    color: #012639;
+    font-weight: bold;
+}
+
+.clear{
+   clear: both;
+}
+
+.home_middle a.join{
+    display:block;
+    text-align:center;
+    margin-top: 30px;
+    border:0px;    color:wheat;
+    background:#005572;
+    padding:5px;
+        font-size: 23px;
+
+}
