@@ -60,6 +60,9 @@ namespace TraderServices.Controllers
             Jobs tc = new Jobs();
             tc.traderPerson = traderPerson;
             tc.catList = catList.ToList();
+            //ViewBag.CarModelID = new SelectList(db.CarModels, "CarModelID", "CarModelName");
+
+            ViewBag.Category = db.Categories;
             return View(tc);
 
             //return View();
@@ -71,7 +74,7 @@ namespace TraderServices.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Names,Details,DueDate,TraderID,CategoryID")] Job job)
+        public ActionResult Create([Bind(Include = "ID,Names,Details,DueDate,TraderID,Category")] Job job)
         {
             if (ModelState.IsValid)
             {
@@ -79,6 +82,7 @@ namespace TraderServices.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.Category = new SelectList(db.Categories, "ID", "Name", job.Category);
 
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "Name", job.CategoryID);
             ViewBag.TraderID = new SelectList(db.Traders, "ID", "Name", job.TraderID);

@@ -7,10 +7,9 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,600" rel="stylesheet">
-
 </head>
-<body class="Olayout">
-        <div class="navbar navbar-inverse navbar-fixed-top">
+<body>
+        @*<div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -29,14 +28,13 @@
                     @Html.Partial("_LoginPartial")
                 </div>
             </div>
-        </div>
-        <div class="container body-content">
+        </div>*@
+        
             @RenderBody()
-            <hr />
-            <footer>
+            @*<footer>
                 <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-            </footer>
-        </div>
+            </footer>*@
+        
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

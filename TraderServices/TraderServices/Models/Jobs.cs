@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 
@@ -8,6 +9,8 @@ namespace TraderServices.Models
     public class Jobs
     {
         public int ID { get; set; }
+        [DisplayName("Job Title")]
+
         public string Names { get; set; }
         public string Details { get; set; }
         public System.DateTime DueDate { get; set; }
