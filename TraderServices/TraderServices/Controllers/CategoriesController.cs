@@ -125,5 +125,28 @@ namespace TraderServices.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult Cat()
+        {
+            return View(db.Categories.ToList());
+        }
+
+        public ActionResult ListCatJob(int? id)
+        {
+
+            var jc = from c in db.Categories
+                     join j in db.Jobs on c.ID equals j.CategoryID
+                     where j.CategoryID == id
+                     select j;
+
+            if (jc == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+          
+            return View(jc);
+        }
+
     }
 }

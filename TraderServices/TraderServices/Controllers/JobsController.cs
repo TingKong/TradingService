@@ -74,19 +74,27 @@ namespace TraderServices.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Names,Details,DueDate,TraderID,Category")] Job job)
+        public ActionResult Create([Bind(Include = "Names,Details,DueDate,traderPerson,CategoryID")] Jobs jobs)
         {
             if (ModelState.IsValid)
             {
-                db.Jobs.Add(job);
+                Job newJob = new Job();
+                string selvalue = Request["Category"];
+                int newCat = Convert.ToInt32(selvalue);
+                newJob.CategoryID = newCat;
+                newJob.Names = jobs.Names;
+                newJob.Details = jobs.Details;
+                int id = (from t in db.Traders where t.Name == jobs.traderPerson.Name && t.AuthKey == User.Identity.Name select t.ID).FirstOrDefault();
+                newJob.TraderID = id;
+                newJob.DueDate = jobs.DueDate;
+                db.Jobs.Add(newJob);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Category = new SelectList(db.Categories, "ID", "Name", job.Category);
 
-            ViewBag.CategoryID = new SelectList(db.Categories, "ID", "Name", job.CategoryID);
-            ViewBag.TraderID = new SelectList(db.Traders, "ID", "Name", job.TraderID);
-            return View(job);
+            //ViewBag.CategoryID = new SelectList(db.Categories, "ID", "Name", job.CategoryID);
+            //ViewBag.TraderID = new SelectList(db.Traders, "ID", "Name", job.TraderID);
+            return View(jobs);
         }
         [Authorize]
 
@@ -162,5 +170,6 @@ namespace TraderServices.Controllers
             }
             base.Dispose(disposing);
         }
+
     }
 }

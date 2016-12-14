@@ -74,7 +74,7 @@ text-transform:lowercase;
 
 
 .home_wrap header{
-        padding-top: 25px;
+    padding-top: 30px;
 
 }
 .home_wrap header .homeU_left{
@@ -97,6 +97,8 @@ text-transform:lowercase;
         font-size: 19px;
     color: #012639;
     font-weight: bold;
+        text-transform: lowercase;
+
 }
 
 .clear{
@@ -127,4 +129,47 @@ text-transform:lowercase;
     border: 1px solid #ddd;
     width: 500px;
     margin:0px auto;
+    -webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+    padding-bottom: 50px;
+
+}
+#loginForm .checkbox{
+    padding-bottom:30px;
+}
+
+#logoutForm .navbar-right li:first-child, #registerLink{
+    display:none;
+}
+
+.navbar-nav > li > a{
+ padding-top: 6px;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: transparent;
+}
+
+#loginForm .form-horizontal .control-label {
+    text-align: left;
+    width: 100%;
+        padding-left: 0px;
+}
+
+#loginForm input{
+    width:100%!important;
+}
+
+#loginForm .checkbox input{
+    display: inline-block;
+    width: 20px!important;
+    margin-right: 5px;
+}
+
+#loginForm .form-horizontal .form-group{
+    margin:0px;
+        padding: 0px 35px;
+
 }

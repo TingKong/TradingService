@@ -10,15 +10,20 @@
             <img src="../../images/logo.png" />
         </div>
         <div class="homeU_right">
-            <a href="../Account/Login?">log in</a>
+            @Html.Partial("_LoginPartial")
+
+
+            @*<a href="../Account/Login?">log in</a>*@
         </div>
     </header>
     <div class="home_middle">
         <a href="Jobs/Create">Post A Job</a>
-        <a href="Jobs/index">Open Jobs</a>
+        <a href="Categories/Cat"">Open Jobs</a>
         <div class="clear"></div>
 
         <a class="join" href="/Account/Register">Sign Up</a>
     </div>
 </div>
 
+<script>
+</script>

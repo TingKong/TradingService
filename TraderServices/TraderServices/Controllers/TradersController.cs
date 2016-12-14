@@ -137,5 +137,23 @@ namespace TraderServices.Controllers
             return View(db.Traders.ToList());
 
         }
+        public ActionResult ListTrader(int? id)
+        {
+      
+
+            var traderCat = (from person in db.Traders 
+                            join ts in db.TradeSkills on person.ID equals ts.TraderID
+                            join jobT in db.Jobs on person.ID equals jobT.TraderID
+                            where jobT.ID == id
+                            select person).FirstOrDefault();
+
+            if (traderCat == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+
+            return View(traderCat);
+        }
     }
 }
