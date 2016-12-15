@@ -152,6 +152,10 @@ namespace TraderServices.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
+            var jobCat = from j in db.Jobs
+                         where j.ID == id
+                         select j;
+            traderCat.Jobs = jobCat.ToList();
 
             return View(traderCat);
         }

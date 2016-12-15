@@ -2,12 +2,13 @@
 
 @{
     ViewBag.Title = "ListTrader";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_interior.cshtml";
 }
-
+<div class="conTrade">
 <h2>Contact Me</h2>
 
 <table class="table">
+    <h4>Trader Info</h4>
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -23,6 +24,7 @@
     <tr>
         <td>@Html.DisplayFor(modelItem => modelItem.Name)</td>
         <td>@Html.DisplayFor(modelItem => modelItem.AuthKey)</td>
+        <td></td>
 
         @*<td>
             @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
@@ -33,10 +35,15 @@
 
 </table>
 <table class="table">
+    <h4>Skills to Trade</h4>
+
     <tr>
 
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @*@Html.DisplayNameFor(model => model.Name)*@
+            @Html.DisplayName("Skills")
+
+
         </th>
         <th>
             @Html.DisplayName("Short Description")
@@ -47,6 +54,7 @@
       
 </tr>
 
+    
 @foreach (var item in Model.TradeSkills)
 {
 
@@ -56,35 +64,67 @@
         <td>@Html.DisplayFor(modelItem => item.ShortDes)</td>
         <td>@Html.DisplayFor(modelItem => item.YearsOfExp)</td>
 
-        @*<td>
-            @Html.ActionLink("Edit", "../TradeSkills/Edit", new { id = item.CategoryID, id2 = item.TraderID }) |
-            @Html.ActionLink("Details", "../TradeSkills/Details", new { id = item.CategoryID, id2 = item.TraderID }) |
-            @Html.ActionLink("Delete", "../TradeSkills/Delete", new { id = item.CategoryID, id2 = item.TraderID })
-        </td>*@
+       
     </tr>
 }
+    </table>
+
+    <table class="table">
+        <h4>Job Detail</h4>
+
+        <tr>
 
 
-@*<tr>
-        <td>
-            @Html.DisplayFor(model => model.TraderP.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(model => model.TraderP.AuthKey)
-        </td>
-        <td>
-            @Html.DisplayFor(model => model.TraderC.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(model => model.TraderS.YearsOfExp)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id= TItem.ID }) |
-                @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.ID })*
-        </td>
-    </tr>*@
+            <th>
+                @Html.DisplayName("Job")
+            </th>
+            <th>
+                @Html.DisplayName("Description")
+            </th>
+            <th>
+            </th>
+
+        </tr>
+
+        @foreach (var item in Model.Jobs)
+        {
+
+            <tr>
+
+                <td>@Html.DisplayFor(modelItem => item.Names)</td>
+                <td>@Html.DisplayFor(modelItem => item.Details)</td>
+                <td>@Html.DisplayFor(modelItem => item.DueDate)</td>
+
+                @*<td>
+                        @Html.ActionLink("Edit", "../TradeSkills/Edit", new { id = item.CategoryID, id2 = item.TraderID }) |
+                        @Html.ActionLink("Details", "../TradeSkills/Details", new { id = item.CategoryID, id2 = item.TraderID }) |
+                        @Html.ActionLink("Delete", "../TradeSkills/Delete", new { id = item.CategoryID, id2 = item.TraderID })
+                    </td>*@
+            </tr>
+        }
 
 
-</table>
-<a href="mailto:@Model.AuthKey">Contact Me</a>
+        @*<tr>
+                <td>
+                    @Html.DisplayFor(model => model.TraderP.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.TraderP.AuthKey)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.TraderC.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.TraderS.YearsOfExp)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id= TItem.ID }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.ID })*
+                </td>
+            </tr>*@
+
+
+    </table>
+<a href="mailto:@Model.AuthKey">Email Trader</a>
+    </div>

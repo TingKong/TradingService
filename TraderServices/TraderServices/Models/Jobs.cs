@@ -9,9 +9,11 @@ namespace TraderServices.Models
     public class Jobs
     {
         public int ID { get; set; }
-        [DisplayName("Job Title")]
+        [DisplayName("Job")]
 
         public string Names { get; set; }
+        [DisplayName("Description")]
+
         public string Details { get; set; }
         public System.DateTime DueDate { get; set; }
         public int TraderID { get; set; }

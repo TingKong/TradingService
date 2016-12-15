@@ -73,7 +73,7 @@ namespace TraderServices
 
     public class JobMetaData
     {
-        [DisplayName("Job Title")]
+        [DisplayName("Job")]
         public string Names { get; set; }
 
         [DisplayName("Description")]

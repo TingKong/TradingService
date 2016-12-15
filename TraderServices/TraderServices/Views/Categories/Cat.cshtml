@@ -2,38 +2,26 @@
 
 @{
     ViewBag.Title = "Cat";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_interior.cshtml";
 }
 
 <h2>Select a Categories</h2>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-      
-        <th></th>
-    </tr>
-
+<div class="cat">
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
+        
                 @Html.ActionLink(item.Name, "ListCatJob", "Categories", new { id=item.ID }, null)
 
-            </td>
-            <td>
+          
                 @Html.DisplayFor(modelItem => item.Desc)
-            </td>
+         
             @*<td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
                 @Html.ActionLink("Details", "Details", new { id = item.ID }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.ID })
             </td>*@
-        </tr>
     }
 
-</table>
 
-
+    </div>

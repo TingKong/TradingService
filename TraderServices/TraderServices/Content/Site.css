@@ -3,8 +3,16 @@
     height:100%;
     padding: 0px!important;
     margin: -10px 0px 0px 0px!important;
-font-family: 'Crimson Text', serif;
+    font-family: 'Crimson Text', serif;
+    transition: all ease .5s;
 
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+        font-family: 'Crimson Text', serif;
+}
+a{
+    text-decoration:none!important;
 }
 body.Olayout {
     padding-top: 50px;
@@ -73,27 +81,26 @@ text-transform:lowercase;
 }
 
 
-.home_wrap header{
+header{
     padding-top: 30px;
 
 }
-.home_wrap header .homeU_left{
+header .homeU_left{
     float:left;
     width:auto;
 }
 
-.home_wrap header .homeU_left img{
+header .homeU_left img{
         width:100px;
 
 }
 
-.home_wrap header .homeU_right{
+header .homeU_right{
     float:right;
         width:auto;
         margin-top:5px;
 }
-
-.home_wrap header .homeU_right a{
+header .homeU_right a{
         font-size: 19px;
     color: #012639;
     font-weight: bold;
@@ -173,3 +180,57 @@ border-radius: 5px;
         padding: 0px 35px;
 
 }
+.gen_interior .cat {
+    width: 996px;
+    margin: 0px auto;
+}
+
+.gen_interior .cat a{
+    padding:20px 50px;
+    color:#fff;
+    background:#005572;
+    margin:0px 10px 10px 0px;
+    -webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+display:inline-block;
+
+}
+    .gen_interior h2 {
+        text-align: center;
+        font-size: 50px;
+        padding-bottom: 30px;
+            padding-top: 30px;
+    }
+    .gen_interior {
+        padding: 0px 30px;
+    }
+
+    .conTrade a{
+    padding: 9px 10px;    text-align: center;
+    color: #fff;
+    background: #012639;
+    width: 276px;
+    margin: 0px auto;
+    display: block;
+    font-size: 24px;
+    margin-bottom:100px;
+    transition:all ease .5s;
+    -webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+    }
+
+    .conTrade a:hover{
+        background:wheat;
+   color:#002639;
+    }
+
+
+    .gen_interior .conTrade h4{
+        font-size:22px;
+    } 
+     .gen_interior .conTrade table{
+padding-bottom:22px;
+
+     } 

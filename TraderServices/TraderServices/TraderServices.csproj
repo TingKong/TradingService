@@ -350,6 +350,7 @@
     <Content Include="Views\Categories\Cat.cshtml" />
     <Content Include="Views\Categories\ListCatJob.cshtml" />
     <Content Include="Views\Traders\ListTrader.cshtml" />
+    <Content Include="Views\Shared\_interior.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
