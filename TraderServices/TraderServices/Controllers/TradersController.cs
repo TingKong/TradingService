@@ -46,7 +46,9 @@ namespace TraderServices.Controllers
         // GET: Traders/Create
         public ActionResult Create()
         {
-            return View();
+            Trader trader = new Trader();
+            trader.AuthKey = User.Identity.Name;
+            return View(trader);
         }
 
         // POST: Traders/Create
@@ -58,6 +60,7 @@ namespace TraderServices.Controllers
         {
             if (ModelState.IsValid)
             {
+                trader.AuthKey = User.Identity.Name;
                 db.Traders.Add(trader);
                 db.SaveChanges();
                 return RedirectToAction("../TradeSkills/Create");

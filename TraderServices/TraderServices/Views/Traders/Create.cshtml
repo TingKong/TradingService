@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_interior.cshtml";
 }
 
 <h2>Step 1</h2>
@@ -27,7 +27,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.AuthKey, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.AuthKey, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DisplayFor(model => model.AuthKey, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.AuthKey, "", new { @class = "text-danger" })
             </div>
         </div>

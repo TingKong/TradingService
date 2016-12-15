@@ -43,7 +43,17 @@ namespace TraderServices.Controllers
         {
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "Name");
             ViewBag.TraderID = new SelectList(db.Traders, "ID", "Name");
-            return View();
+            //TradeSkill traderPN = (from t in db.TradeSkills
+            //                       join tp in db.Traders on t.TraderID equals tp.ID
+            //                       where tp.AuthKey == User.Identity.Name
+            //                       select t).FirstOrDefault();
+
+            TradeSkill TradePN = new TradeSkill();
+            TradePN.Trader = (from t in db.Traders where t.AuthKey == User.Identity.Name select t).FirstOrDefault();
+            TradePN.TraderID = TradePN.Trader.ID;                  
+            
+             
+            return View(TradePN);
         }
 
         // POST: TradeSkills/Create

@@ -10,17 +10,18 @@ using TraderServices;
 
 namespace TraderServices.Controllers
 {
-    [Authorize]
 
     public class CategoriesController : Controller
     {
         private TradeServicesEntities db = new TradeServicesEntities();
+        [Authorize]
 
         // GET: Categories
         public ActionResult Index()
         {
             return View(db.Categories.ToList());
         }
+        [Authorize]
 
         // GET: Categories/Details/5
         public ActionResult Details(int? id)
@@ -36,6 +37,7 @@ namespace TraderServices.Controllers
             }
             return View(category);
         }
+        [Authorize]
 
         // GET: Categories/Create
         public ActionResult Create()
@@ -59,6 +61,7 @@ namespace TraderServices.Controllers
 
             return View(category);
         }
+        [Authorize]
 
         // GET: Categories/Edit/5
         public ActionResult Edit(int? id)
@@ -74,6 +77,7 @@ namespace TraderServices.Controllers
             }
             return View(category);
         }
+        [Authorize]
 
         // POST: Categories/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -90,6 +94,7 @@ namespace TraderServices.Controllers
             }
             return View(category);
         }
+        [Authorize]
 
         // GET: Categories/Delete/5
         public ActionResult Delete(int? id)
@@ -105,6 +110,7 @@ namespace TraderServices.Controllers
             }
             return View(category);
         }
+        [Authorize]
 
         // POST: Categories/Delete/5
         [HttpPost, ActionName("Delete")]
@@ -116,6 +122,7 @@ namespace TraderServices.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        [Authorize]
 
         protected override void Dispose(bool disposing)
         {

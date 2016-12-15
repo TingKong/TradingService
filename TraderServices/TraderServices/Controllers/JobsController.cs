@@ -49,8 +49,8 @@ namespace TraderServices.Controllers
             //Job myTrader = Jobs.GetTraderByUserName(userName);
 
             //Job traderjob = new Job();
-            Trader traderPerson = (from tp in db.Jobs
-                                   join person in db.Traders on tp.TraderID equals person.ID
+
+            Trader traderPerson = (from person in db.Traders
                                    where person.AuthKey == User.Identity.Name
                                    select person).FirstOrDefault();
 
@@ -74,7 +74,7 @@ namespace TraderServices.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Names,Details,DueDate,traderPerson,CategoryID")] Jobs jobs)
+        public ActionResult Create([Bind(Include = "Names,Details,DueDate,traderPerson,CategoryID,TraderID")] Jobs jobs)
         {
             if (ModelState.IsValid)
             {
@@ -84,8 +84,9 @@ namespace TraderServices.Controllers
                 newJob.CategoryID = newCat;
                 newJob.Names = jobs.Names;
                 newJob.Details = jobs.Details;
-                int id = (from t in db.Traders where t.Name == jobs.traderPerson.Name && t.AuthKey == User.Identity.Name select t.ID).FirstOrDefault();
-                newJob.TraderID = id;
+                newJob.TraderID = jobs.traderPerson.ID;
+                //int id = (from t in db.Traders where t.Name == jobs.traderPerson.Name && t.AuthKey == User.Identity.Name select t.ID).FirstOrDefault();
+                //newJob.TraderID = id;
                 newJob.DueDate = jobs.DueDate;
                 db.Jobs.Add(newJob);
                 db.SaveChanges();

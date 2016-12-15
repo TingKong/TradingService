@@ -12,6 +12,7 @@ namespace TraderServices.Models
 
         public Trader TraderP { get; set; }
         public Category TraderC { get; set; }
+        public Trader traderPN { get; set; }
 
     }
 }
