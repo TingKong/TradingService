@@ -20,7 +20,7 @@
         <div class="form-group">
             @*@Html.LabelFor(model => model.traderPerson.Name, "Trader", htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
-                @Html.EditorFor(model => model.traderPerson.ID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.HiddenFor(model => model.traderPerson.ID, new { htmlAttributes = new { @class = "form-control" } })
                 @*@Html.DropDownList("TraderID", null, htmlAttributes: new { @class = "form-control" })*@
                 @Html.ValidationMessageFor(model => model.traderPerson.ID, "", new { @class = "text-danger" })
             </div>

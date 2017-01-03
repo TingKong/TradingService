@@ -23,6 +23,14 @@ namespace TraderServices.Controllers
             return View(jobs.ToList());
         }
 
+        public ActionResult jobedit()
+        {
+            var jobs = db.Jobs.Include(j => j.Category).Include(j => j.Trader);
+
+            return View(jobs.ToList());
+        }
+
+
         // GET: Jobs/Details/5
         public ActionResult Details(int? id)
         {

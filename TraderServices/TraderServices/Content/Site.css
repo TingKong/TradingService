@@ -101,10 +101,11 @@ header .homeU_right{
         margin-top:5px;
 }
 header .homeU_right a{
-        font-size: 19px;
+        font-size: 16px;
     color: #012639;
-    font-weight: bold;
         text-transform: lowercase;
+        
+    padding: 0px 10px;
 
 }
 
@@ -180,6 +181,35 @@ border-radius: 5px;
         padding: 0px 35px;
 
 }
+.gen_interior .int_content{
+    padding:0px 30px;
+}
+.gen_interior header{
+      background: #fff7e7;
+    padding: 6px 30px 0px 30px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    margin: 0px 20px;
+    border-radius: 5px;
+    position: relative;
+    top: 30px;
+    /* border-bottom: 1px solid #012639; */
+}
+.gen_interior nav ul{
+    list-style:none;
+        display:inline-block;
+
+}
+.gen_interior nav li{
+    display:inline-block;
+}
+
+.gen_interior nav li.log{
+    position: relative;
+    top: 4px;
+}
+}
+
 .gen_interior .cat {
     width: 996px;
     margin: 0px auto;
@@ -201,9 +231,11 @@ display:inline-block;
         font-size: 50px;
         padding-bottom: 30px;
             padding-top: 30px;
+                width: 442px;
+    margin: 0px auto;
     }
     .gen_interior {
-        padding: 0px 30px;
+        background:url(../images/bg-1.png);
     }
 
     .conTrade a{
@@ -239,3 +271,127 @@ padding-bottom:22px;
              width: 442px;
                  margin: 0px auto;
      }
+
+    .jobitem li{
+         list-style:none!important;
+     }
+    .jobitem button a{
+        background:#012639;
+        color:white;
+        font-size:20px;
+        padding:10px 20px;
+        display:block;
+        margin:5px auto;
+        transition:all ease .5s;
+    }
+
+    .jobitem button a:hover {
+        background:#ddd;
+        color:#012639;
+    }
+
+    .jobitem button{
+        background:transparent;
+        border:0px;
+        margin:0px auto;
+        width:100%;
+    }
+
+ 
+    .jobitem ul{
+        padding:30px;
+        list-style:none!important;
+        border:5px solid #ddd;
+        width: 300px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+            color: #002639;
+                display: inline-block;
+    float: left;
+    margin-right: 5px;
+    margin-left: 5px;
+    min-height: 331px;
+
+    }
+
+    .jobitem .title{
+        font-size:16px;
+        text-transform:uppercase;
+    }
+
+    .jobitem .content{
+            padding: 0px 0px 10px 0px;
+    margin-bottom: 10px;
+    border-bottom:1px solid #ddd;
+    }
+
+    .jobitem li.content:last-child{
+        border:0px;
+        padding:0px;
+        margin:0px;
+    }
+
+
+     .bio li{
+         list-style:none!important;
+     }
+    .bio button a{
+        background:#012639;
+        color:white;
+        font-size:20px;
+        padding:10px 20px;
+        display:block;
+        margin:5px auto;
+        transition:all ease .5s;
+    }
+
+    .bio button a:hover {
+        background:#ddd;
+        color:#012639;
+    }
+
+    .bio button{
+        background:transparent;
+        border:0px;
+        margin:0px auto;
+        width:100%;
+    }
+
+ 
+    .bio ul{
+        padding:5px 0px;
+        list-style:none!important;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+            color: #002639;
+                display: block;
+
+    }
+
+    .bio .title{
+        font-size:16px;
+        text-transform:uppercase;
+    }
+
+    .bio .content{
+            padding: 0px 0px 10px 0px;
+    margin-bottom: 10px;
+    border-bottom:1px solid #ddd;
+    }
+
+    .bio li.content:last-child{
+        border:0px;
+        padding:0px;
+        margin:0px;
+    }
+
+    .gen_interior .bio h3{
+        border-bottom:2px solid #bf2b09;
+
+    }
+    .gen_interior .bio .table tbody > tr > th{
+        border-top:0px!important;
+        border-bottom:1px solid #dddddd!important;
+    }

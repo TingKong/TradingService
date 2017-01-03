@@ -7,56 +7,28 @@
 
 <h2>Jobs</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayName("Trader")
-        </th>
-        <th>
-            @Html.DisplayName("Category")
-        </th>
 
-        <th>
-            @Html.DisplayNameFor(model => model.Names)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Details)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DueDate)
-        </th>
-        
-        <th></th>
-    </tr>
+@foreach (var item in Model)
+{
+    <div class="jobitem">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Trader.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category.Name)
-        </td>
-        
-        <td>
-            @Html.DisplayFor(modelItem => item.Names)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Details)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DueDate)
-        </td>
-       
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
+        <ul>
+            <li class="title">@Html.DisplayName("Trader")</li>
+            <li class="content">@Html.DisplayFor(modelItem => item.Trader.Name)</li>
+
+            @*<li class="title">@Html.DisplayName("Category")</li>
+            <li class="content">@Html.DisplayFor(modelItem => item.Category.Name)</li>*@
+
+            <li class="title">@Html.DisplayNameFor(model => model.Names)</li>
+            <li class="content">@Html.DisplayFor(modelItem => item.Names)</li>
+
+            <li class="title">@Html.DisplayNameFor(model => model.Details)</li>
+            <li class="content">@Html.DisplayFor(modelItem => item.Details)</li>
+
+            <li class="title">@Html.DisplayNameFor(model => model.DueDate)</li>
+            <li class="content">@Html.DisplayFor(modelItem => item.DueDate)</li>
+
+        </ul>
+    </div>
 }
 
-</table>

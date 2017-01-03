@@ -6,24 +6,37 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="../font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,600" rel="stylesheet">
+
 </head>
 <body>
    
     <div class="gen_interior">
         <header>
             <div class="homeU_left">
-                <img src="../../images/logo.png" />
+                <a href="~/Home/Index"><img src="../../images/logo.png" /></a>
             </div>
             <div class="homeU_right">
+                <nav>
+                    <ul>
+                        <li><a href="~/Categories/Cat">View Jobs</a></li>
+                        <li><a href="~/Jobs/Create">Post Job</a></li>
+                        <li class="log">@Html.Partial("_LoginPartial")</li>
+                        <li><a href="~/Traders/Index"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+
+                    </ul>
+                </nav>
                
-                @Html.Partial("_LoginPartial")
 
 
                 @*<a href="../Account/Login?">log in</a>*@
             </div>
+            <div class="clear"></div>
         </header>
-        @RenderBody()
+        <div class="int_content">
+            @RenderBody()
+        </div>
     </div>  
 
     <script src="~/Scripts/jquery-3.1.1.min.js"></script>

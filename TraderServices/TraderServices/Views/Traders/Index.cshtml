@@ -4,61 +4,55 @@
     Layout = "~/Views/Shared/_interior.cshtml";
 }
 
-<h2>Bio</h2>
+<h2></h2>
 
-<p>
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
+<div class="bio">
+    <h3>Personal Information</h3>
+    <ul>
+        <li>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(modelItem => modelItem.Name)</li>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AuthKey)
-        </th>
-       
-        <th></th>
-    </tr>
-   
+        <li> @Html.DisplayNameFor(model => model.AuthKey): @Html.DisplayFor(modelItem => modelItem.AuthKey)</li>
 
-        <tr>
-            <td>@Html.DisplayFor(modelItem => modelItem.Name)</td>
-            <td>@Html.DisplayFor(modelItem => modelItem.AuthKey)</td>
-            
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = Model.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = Model.ID })
-            </td>
-        </tr>
-    
-    </table>
+
+
+
+
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+        @Html.ActionLink("Details", "Details", new { id = Model.ID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = Model.ID })
+
+    </ul>
+    <h3>Professional Information</h3>
+
     <table class="table">
         <tr>
-            
+
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
                 @Html.DisplayName("Short Description")
             </th>
-            <th>@Html.DisplayName("Years of Experience")
-</th>
+            <th>
+                @Html.DisplayName("Years of Experience")
+            </th>
+            <th></th>
         </tr>
 
         @foreach (var item in Model.TradeSkills)
         {
 
             <tr>
-               
+
                 <td>@Html.DisplayFor(modelItem => item.Category.Name)</td>
                 <td>@Html.DisplayFor(modelItem => item.ShortDes)</td>
                 <td>@Html.DisplayFor(modelItem => item.YearsOfExp)</td>
 
                 <td>
-                    @Html.ActionLink("Edit", "../TradeSkills/Edit", new { id = item.CategoryID, id2= item.TraderID}) |
+                    @Html.ActionLink("Edit", "../TradeSkills/Edit", new { id = item.CategoryID, id2 = item.TraderID }) |
                     @Html.ActionLink("Details", "../TradeSkills/Details", new { id = item.CategoryID, id2 = item.TraderID }) |
                     @Html.ActionLink("Delete", "../TradeSkills/Delete", new { id = item.CategoryID, id2 = item.TraderID })
                 </td>
@@ -86,3 +80,4 @@
 
 
     </table>
+</div>
