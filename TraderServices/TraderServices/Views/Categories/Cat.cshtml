@@ -6,22 +6,24 @@
 }
 
 <h2>Select a Categories</h2>
+    <div class="cat">
+        <ul>
 
-<div class="cat">
-    @foreach (var item in Model)
-    {
-        
-                @Html.ActionLink(item.Name, "ListCatJob", "Categories", new { id=item.ID }, null)
+            @foreach (var item in Model)
+            {
 
-          
-                @Html.DisplayFor(modelItem => item.Desc)
-         
-            @*<td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-            </td>*@
-    }
+                <li> @Html.ActionLink(item.Name, "ListCatJob", "Categories", new { id = item.ID }, null)</li>
 
 
+                <li> @Html.DisplayFor(modelItem => item.Desc)</li>
+
+                @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>*@
+            }
+
+        </ul>
+        <div class="clear"></div>
     </div>

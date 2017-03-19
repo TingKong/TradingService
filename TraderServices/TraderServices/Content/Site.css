@@ -60,7 +60,7 @@ textarea{
 }
 
 .home_wrap .home_middle{
-     width: 472px;
+    width: 480px;
     margin:0px auto;
     padding:260px 0px 340px 0px;
     
@@ -130,7 +130,30 @@ header .homeU_right a{
     color:#012639;
 }
 
-#loginForm h2{
+#loginForm .reg .btn-default{
+    margin-top:10px!important;
+    background:#012639!important;
+    transition:all ease .5s;
+}
+
+.btn-default{
+        margin-top:10px!important;
+    background:#012639!important;
+    transition:all ease .5s;
+    color:white;
+        padding: 10px 0px;
+}
+
+ #loginForm .reg .btn-default:hover{
+    background:#fdb327 !important;
+    color:#012639!important;
+}
+
+ .btn-default:hover{
+    background:#fdb327 !important;
+    color:#012639!important;
+}
+#loginForm h2, #loginForm h4{
     text-align:center;
 }
 #loginForm form {
@@ -182,10 +205,9 @@ border-radius: 5px;
 
 }
 .gen_interior .int_content{
-    padding:0px 30px;
-}
+padding: 0px 30px 300px 30px;}
 .gen_interior header{
-      background: #fff7e7;
+
     padding: 6px 30px 0px 30px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -214,26 +236,40 @@ border-radius: 5px;
     width: 996px;
     margin: 0px auto;
 }
-
+.gen_interior .cat ul{
+    width: 1128px;
+    margin: 0px auto;}
+.gen_interior .cat li{
+    display:inline-block;
+    width: 205px;    
+    float:left;
+    text-align:center;
+}
 .gen_interior .cat a{
-    padding:20px 50px;
-    color:#fff;
-    background:#005572;
-    margin:0px 10px 10px 0px;
+    padding:20px 0px;
+    color:#005572;
+    margin:0px 0px 10px 0px;
     -webkit-border-radius: 5px;
 -moz-border-radius: 5px;
 border-radius: 5px;
 display:inline-block;
+font-size:21px;
+transition:all ease .5s;
 
 }
+
+    .gen_interior .cat a:hover {
+        color:#fdb327;
+    }
     .gen_interior h2 {
         text-align: center;
         font-size: 50px;
         padding-bottom: 30px;
-            padding-top: 30px;
+            padding-top: 65px;
                 width: 442px;
     margin: 0px auto;
-    }
+        border-bottom: 2px solid #fdb327;
+margin-bottom: 20px;    }
     .gen_interior {
         background:url(../images/bg-1.png);
     }
@@ -286,7 +322,7 @@ padding-bottom:22px;
     }
 
     .jobitem button a:hover {
-        background:#ddd;
+        background:#fdb327;
         color:#012639;
     }
 
@@ -301,8 +337,7 @@ padding-bottom:22px;
     .jobitem ul{
         padding:30px;
         list-style:none!important;
-        border:5px solid #ddd;
-        width: 300px;
+border: 2px solid #012639;        width: 300px;
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
         border-radius: 5px;
@@ -319,11 +354,15 @@ padding-bottom:22px;
         font-size:16px;
         text-transform:uppercase;
     }
+.jobitem .content a{
+                color: #002639;
+
+}
 
     .jobitem .content{
             padding: 0px 0px 10px 0px;
     margin-bottom: 10px;
-    border-bottom:1px solid #ddd;
+    border-bottom:1px solid #012639;
     }
 
     .jobitem li.content:last-child{
@@ -331,7 +370,9 @@ padding-bottom:22px;
         padding:0px;
         margin:0px;
     }
-
+    .bio{
+        margin-top:80px;
+    }
 
      .bio li{
          list-style:none!important;
@@ -344,6 +385,21 @@ padding-bottom:22px;
         display:block;
         margin:5px auto;
         transition:all ease .5s;
+    }
+    .conTrade li{
+                 list-style:none!important;
+
+    }
+     .conTrade ul{
+        padding:5px 0px;
+        list-style:none!important;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+            color: #002639;
+                display: block;
+                font-size:17px;
+
     }
 
     .bio button a:hover {
@@ -367,6 +423,7 @@ padding-bottom:22px;
         border-radius: 5px;
             color: #002639;
                 display: block;
+                font-size:17px
 
     }
 
@@ -388,10 +445,19 @@ padding-bottom:22px;
     }
 
     .gen_interior .bio h3{
-        border-bottom:2px solid #bf2b09;
+        border-bottom:2px solid #ddd;
 
     }
     .gen_interior .bio .table tbody > tr > th{
         border-top:0px!important;
         border-bottom:1px solid #dddddd!important;
+    }
+
+    .home_wrap h3{
+            width: 621px;
+    display: block;
+    margin: 0px auto;
+    position: relative;
+    top: 207px;
+        font-size: 37px;
     }
